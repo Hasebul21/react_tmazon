@@ -1,8 +1,11 @@
-export default function Counter({increment, decrement}){
+import { useContext } from 'react';
+import { CounterContext } from '../context/CounterContext';
+export default function Counter() {
+    const { incrementCounter, decrementCounter } = useContext(CounterContext);
     return (
         <div>
-            <button onClick={increment}>Increment</button>
-            <button onClick={decrement}>Decrement</button>
+            <button onClick={incrementCounter}>Increment</button>
+            <button onClick={decrementCounter}>Decrement</button>
         </div>
     )
 }
