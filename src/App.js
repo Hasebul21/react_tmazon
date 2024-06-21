@@ -1,13 +1,10 @@
 import './App.css';
-import Counter from './components/Counter';
-import ViewNumber from './components/ViewNumber';
-import LoginForm from './components/login'
-import Signup from './components/Signup';
+import AvailiablePlaces from './components/AvailiablePlaces.jsx';  
 
 function App() {
   return (
     <main>
-      <Signup></Signup>
+      <AvailiablePlaces></AvailiablePlaces>
     </main>
   )
 }
