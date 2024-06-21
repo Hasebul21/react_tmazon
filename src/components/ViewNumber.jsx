@@ -1,11 +1,13 @@
-import { useContext } from "react"
-import { CounterContext } from "../context/CounterContext"
+import { useSelector } from 'react-redux'
 
 export default function ViewNumber() {
-    const { counter } = useContext(CounterContext);
-    return (
-        <div>
-            <h1>Hello this is {counter}</h1>
-        </div>
-    )
+  const count = useSelector((state) => state.count)
+  const toggle = useSelector((state) => state.showCounter)
+
+  return (
+    <div>
+      {toggle && <h1>Hello this is {count}</h1>}
+      {!toggle && <h1>Its Hidden</h1>}
+    </div>
+  )
 }
