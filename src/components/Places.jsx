@@ -1,11 +1,10 @@
-export default function Places({ name, image, price }) {
-  console.log(name, image, price)
+export default function Places({ title, image}) {
   return (
     <div className="card">
-      <h1>{name}</h1>
-      <img src={image.src} alt={image.alt} />
+      <h1>{title}</h1>
+      <img src={`http://localhost:3000/${image.src}`} alt="Not found" />
       <p>
-        <strong>Price:</strong> {price}
+        <strong>Description:</strong> {image.alt}
       </p>
     </div>
   )
