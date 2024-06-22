@@ -1,25 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import Places from './Places'
-const initialPlaces = [
-  {
-    name: 'Sylhet',
-    image: 'https://www.google.com',
-    price: 100,
-  },
-  {
-    name: 'Ramna Park',
-    image: 'https://www.google.com',
-    price: 100,
-  },
-  {
-    name: 'Coxs Bazar',
-    image: 'https://www.google.com',
-    price: 100,
-  },
-]
 export default function AvailiablePlaces() {
   const [listOfplaces, setListOfPlaces] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+  const [toggle, setToggle] = useState(false)
   useEffect(() => {
     async function fechData() {
       setIsLoading(true)
@@ -37,9 +21,11 @@ export default function AvailiablePlaces() {
         {isLoading && listOfplaces.length == 0 && <h3>Loading...</h3>}
         {isLoading == false && listOfplaces.map((p) => {
           return (
-            <Places
-              {...p}
-            ></Places>
+            <div>
+              <Places key={p.id}
+                userData={p}
+              ></Places>
+            </div>
           )
         })}
       </div>
