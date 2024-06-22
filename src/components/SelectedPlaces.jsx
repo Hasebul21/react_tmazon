@@ -1,21 +1,15 @@
 import { useEffect, useState } from 'react'
 import Places from './Places'
+import { useSelector } from 'react-redux';
 export default function SelectedPlaces() {
-  const [listOfplaces, setListOfPlaces] = useState([])
-  useEffect(() => {
-    fetch('http://localhost:3000/user-places')
-      .then((response) => response.json())
-      .then((data) => {
-        setListOfPlaces([...listOfplaces, data.places])
-      })
-  }, [])
+  const  listOfPlaces = useSelector((state) => state.listOfPlaces);
 
   return (
     <div>
       <h1>Selected Places</h1>
       <div className="places-container">
         <h3>Loading...</h3>
-        {listOfplaces.map((p) => {
+        {listOfPlaces && listOfPlaces.map((p) => {
           return (
             <div>
               <Places key={p.id}
