@@ -47,7 +47,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lprettier --write . && git add -A"
+      "pre-commit": "prettier --write . && git add -A"
     }
   },
   "lint-staged": {
