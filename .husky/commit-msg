@@ -19,4 +19,5 @@ if ! echo "$message" | grep -iqE "$requiredPattern"; then
   exit 1
 fi
 
+# If commit message format is correct, run lint-staged
 npx lint-staged
