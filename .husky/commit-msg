@@ -18,3 +18,5 @@ if ! echo "$message" | grep -iqE "$requiredPattern"; then
   echo >&2 "-"
   exit 1
 fi
+
+npx lint-staged
