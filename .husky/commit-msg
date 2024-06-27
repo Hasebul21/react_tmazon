@@ -3,16 +3,17 @@
 
 message=$(cat "$1")
 requiredPattern="^[A-Z]+-[0-9]+ [A-Z].+$"
+anotherPattern="^(hotfix|bug|feature): [A-Z].+$"
 
 
 # Check the format of the commit message
-if ! echo "$message" | grep -qE "$requiredPattern"; then
+if ! echo "$message" | grep -qE "$requiredPattern" && ! echo "$message" | grep -qE "$anotherPattern"; then
   echo >&2 "-"
   echo >&2 "-"
   echo >&2 "-"
   echo >&2 "🚨 Wrong commit message! 😕"
   echo >&2 "The commit message must have this format:"
-  echo >&2 "feature/<any number>/<any message>"
+  echo >&2 "<>"
   echo >&2 "-"
   echo >&2 "Your commit message was:"
   echo >&2 "$message"
