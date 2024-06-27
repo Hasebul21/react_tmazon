@@ -54,11 +54,11 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write",
+      "pretty-quick --staged",
       "git add -u"
     ],
     "e2e/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write",
+      "pretty-quick --staged",
       "git add -u"
     ]
   }
