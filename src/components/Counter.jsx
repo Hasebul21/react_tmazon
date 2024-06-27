@@ -20,9 +20,6 @@ export default function Counter() {
   const anotherCounter = () => {
     dispatch({ type: 'TOGGLE_COUNTER' })
   }
-  const wowowow = () => {
-    dispatch({ type: 'TOGGLE_COUNTER' })
-  }
   return (
     <div>
       <button onClick={incrementCounter}>Increment</button>
