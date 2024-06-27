@@ -2,7 +2,9 @@ import { createContext } from 'react'
 import { useState } from 'react'
 
 export const CounterContext = createContext({
-  counter: 0,incrementCounter: () => {}, decrementCounter: () => {},
+  counter: 0,
+  incrementCounter: () => {},
+  decrementCounter: () => {},
 })
 
 export default function CounterContextProvider({ children }) {
