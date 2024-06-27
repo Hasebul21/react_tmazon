@@ -23,3 +23,20 @@ fi
 # If commit message validation passed, run lint-staged
 npx lint-staged
 
+UNSTAGED_ADDED_FILES_AFTER=$(git diff --name-only --diff-filter=ACM)
+UNSTAGED_REMOVED_FILES_AFTER=$(git diff --name-only --diff-filter=D)
+
+for file in $UNSTAGED_ADDED_FILES_AFTER; do
+  if ! echo "$STAGED_ADDED_FILES_BEFORE" | grep -q " $file "; then
+    echo "> git add $file"
+    git add "$file"
+  fi
+done
+
+for file in $UNSTAGED_REMOVED_FILES_AFTER; do
+  if ! echo "$STAGED_REMOVED_FILES_BEFORE" | grep -q " $file "; then
+    echo "> git remove $file"
+    git remove "$file"
+  fi
+done
+
