@@ -20,5 +20,7 @@ if ! echo "$message" | grep -qE "$requiredPattern" && ! echo "$message" | grep -
   exit 1
 fi
 
+npx lint-staged
+
 
 
