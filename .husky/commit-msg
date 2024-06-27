@@ -20,6 +20,10 @@ if ! echo "$message" | grep -qE "$requiredPattern" && ! echo "$message" | grep -
   exit 1
 fi
 
+
+STAGED_ADDED_FILES_BEFORE=$(git diff --cached --name-only --diff-filter=ACM)
+STAGED_REMOVED_FILES_BEFORE=$(git diff --cached --name-only --diff-filter=D)
+
 # If commit message validation passed, run lint-staged
 npx lint-staged
 

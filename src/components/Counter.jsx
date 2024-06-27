@@ -11,8 +11,12 @@ export default function Counter() {
   const incrementBy10 = () => {
     dispatch({ type: 'INCREMENT_BY_5', amount: 10 })
   }
-  const togglrButton = () => {dispatch({ type: 'TOGGLE_COUNTER' })}
-  const newCounter = () => {dispatch({ type: 'TOGGLE_COUNTER' })}
+  const togglrButton = () => {
+    dispatch({ type: 'TOGGLE_COUNTER' })
+  }
+  const newCounter = () => {
+    dispatch({ type: 'TOGGLE_COUNTER' })
+  }
   const anotherCounter = () => {
     dispatch({ type: 'TOGGLE_COUNTER' })
   }
