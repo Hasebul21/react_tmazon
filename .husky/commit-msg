@@ -2,7 +2,10 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 message=$(cat "$1")
-requiredPattern="^feature/[0-9]+/.+$"
+requiredPattern="^[A-Z]+-[0-9]+ [A-Z].+$"
+
+
+# Check the format of the commit message
 if ! echo "$message" | grep -iqE "$requiredPattern"; then
   echo >&2 "-"
   echo >&2 "-"
@@ -10,6 +13,22 @@ if ! echo "$message" | grep -iqE "$requiredPattern"; then
   echo >&2 "🚨 Wrong commit message! 😕"
   echo >&2 "The commit message must have this format:"
   echo >&2 "feature/<any number>/<any message>"
+  echo >&2 "-"
+  echo >&2 "Your commit message was:"
+  echo >&2 "$message"
+  echo >&2 "-"
+  echo >&2 "For more information, check script in .husky/commit-msg"
+  echo >&2 "-"
+  exit 1
+fi
+
+# Check the length of the commit message
+if [ ${#message} -ge 20 ]; then
+  echo >&2 "-"
+  echo >&2 "-"
+  echo >&2 "-"
+  echo >&2 "🚨 Commit message is too long! 😕"
+  echo >&2 "The commit message must be less than 20 characters long."
   echo >&2 "-"
   echo >&2 "Your commit message was:"
   echo >&2 "$message"
