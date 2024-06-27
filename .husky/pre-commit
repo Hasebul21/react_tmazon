@@ -1,2 +1,41 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
+
+COMMIT_MSG_FILE=$(git rev-parse --git-dir)/COMMIT_EDITMSG
+
+# Validate commit message format
+validate_commit_message() {
+  message_file="$1"
+  requiredPattern="^[A-Z]+-[0-9]+ [A-Z].{9,}$"
+  anotherPattern="^(hotfix|bug): [A-Z].{9,}$"
+
+  if [ ! -s "$message_file" ]; then
+    echo >&2 "Error: Commit message file is empty."
+    exit 1
+  fi
+
+  message=$(cat "$message_file")
+
+  if ! echo "$message" | grep -qE "$requiredPattern" && ! echo "$message" | grep -qE "$anotherPattern"; then
+    echo >&2 "-"
+    echo >&2 "-"
+    echo >&2 "-"
+    echo >&2 "🚨 Wrong commit message format! 😕"
+    echo >&2 "The commit message must have one of these formats:"
+    echo >&2 "1. <PREFIX>-<NUMBER> <Description with at least 10 characters>"
+    echo >&2 "2. (hotfix|bug): <Description with at least 10 characters>"
+    echo >&2 "-"
+    echo >&2 "Your commit message was:"
+    echo >&2 "$message"
+    echo >&2 "-"
+    echo >&2 "For more information, check script in .husky/commit-msg"
+    echo >&2 "-"
+    exit 1
+  fi
+}
+
+# Run commit message validation
+validate_commit_message "$COMMIT_MSG_FILE"
+
+# If commit message validation passed, run lint-staged
+npx lint-staged

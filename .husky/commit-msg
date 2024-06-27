@@ -20,5 +20,3 @@ if ! echo "$message" | grep -qE "$requiredPattern" && ! echo "$message" | grep -
   exit 1
 fi
 
-# If commit message format is correct, run lint-staged
-npx lint-staged
