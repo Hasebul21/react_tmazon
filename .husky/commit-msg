@@ -20,3 +20,6 @@ if ! echo "$message" | grep -qE "$requiredPattern" && ! echo "$message" | grep -
   exit 1
 fi
 
+# If commit message validation passed, run lint-staged
+npx lint-staged
+
