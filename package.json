@@ -55,12 +55,10 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "pretty-quick --staged",
-      "git add"
+      "pretty-quick --staged"
     ],
     "e2e/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "pretty-quick --staged",
-      "git add"
+      "pretty-quick --staged"
     ]
   }
 }
