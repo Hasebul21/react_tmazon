@@ -6,7 +6,7 @@ requiredPattern="^[A-Z]+-[0-9]+ [A-Z].+$"
 
 
 # Check the format of the commit message
-if ! echo "$message" | grep -iqE "$requiredPattern"; then
+if ! echo "$message" | grep -qE "$requiredPattern"; then
   echo >&2 "-"
   echo >&2 "-"
   echo >&2 "-"
