@@ -5,7 +5,10 @@ export const CounterContext = createContext({
   counter: 0,
   incrementCounter: () => {},
   decrementCounter: () => {},
-})
+  
+});
+console.log('This is a test');
+console.log('This is a test')
 
 export default function CounterContextProvider({ children }) {
   const [counter, setCounter] = useState(0)
