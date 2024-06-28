@@ -25,6 +25,8 @@ if ! echo "$message" | grep -qE "$requiredPattern" && ! echo "$message" | grep -
   echo >&2 "you are following the correct commit message format."
   echo >&2 "-"
   exit 1
+else
+  echo "✅ Commit message format is correct."
 fi
 
 
