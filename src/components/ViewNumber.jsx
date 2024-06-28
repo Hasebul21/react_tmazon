@@ -6,8 +6,7 @@ export default function ViewNumber() {
 
   return (
     <div>
-      {toggle && <h1>Hello this is {count}</h1>}
-      {!toggle && <h1>Its Hidden</h1>}
+      {toggle && <h1>Hello this is {count}</h1>} {!toggle && <h1>Its Hidden</h1>}
     </div>
   );
 }

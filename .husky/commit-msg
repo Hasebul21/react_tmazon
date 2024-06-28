@@ -8,14 +8,21 @@ anotherPattern="^(hotfix|bug): [A-Z].{9,}$"
 
 # Check the format of the commit message
 if ! echo "$message" | grep -qE "$requiredPattern" && ! echo "$message" | grep -qE "$anotherPattern"; then
-  echo >&2 "-"
-  echo >&2 "-"
-  echo >&2 "-"
+  echo >&2 "🚨🚨🚨"
   echo >&2 "🚨 Wrong commit message! 😕"
-  echo >&2 "The commit message must have this format:"
-  echo >&2 "$message"
+  echo >&2 "🚨🚨🚨"
   echo >&2 "-"
-  echo >&2 "For more information, check script in .husky/commit-msg"
+  echo >&2 "The commit message must have one of the following formats:"
+  echo >&2 "  - hotfix: Description of the fix"
+  echo >&2 "  - feature: Description of the new feature"
+  echo >&2 "-"
+  echo >&2 "You provided: \"$message\""
+  echo >&2 "-"
+  echo >&2 "For more information, check the script in .husky/commit-msg"
+  echo >&2 "and the project documentation."
+  echo >&2 "-"
+  echo >&2 "Reminder: Please read the documentation carefully to ensure"
+  echo >&2 "you are following the correct commit message format."
   echo >&2 "-"
   exit 1
 fi
