@@ -2,9 +2,7 @@ import { createContext } from 'react';
 import { useState } from 'react';
 
 export const CounterContext = createContext({
-  counter: 0,
-  incrementCounter: () => {},
-  decrementCounter: () => {},
+  counter: 0,incrementCounter: () => {},decrementCounter: () => {},
 });
 console.log('This is a test');
 

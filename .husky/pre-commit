@@ -1,26 +1,2 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
-
-# Function to check if a file has only whitespace changes
-has_only_whitespace_changes() {
-    local file="$1"
-    # Check if the file has any non-whitespace diff lines
-    git diff --cached --ignore-all-space --exit-code "$file" >/dev/null 2>&1
-    return $?
-}
-
-# Get list of staged files
-staged_files=$(git diff --cached --name-only --diff-filter=ACM)
-
-# Iterate over each staged file
-for file in $staged_files; do
-    # Check if the file has only whitespace changes
-    if has_only_whitespace_changes "$file"; then
-        echo "Staging file with only whitespace changes: $file"
-        # Stage the file including whitespace changes
-        git add "$file"
-    fi
-done
-
-# Now proceed with commit
-exit 0

@@ -55,10 +55,12 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write"
+      "eslint . --fix",
+      "prettier --write ."
     ],
     "e2e/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write"
+      "eslint . --fix",
+      "prettier --write ."
     ]
   }
 }
