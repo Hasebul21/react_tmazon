@@ -2,11 +2,9 @@ import { useDispatch } from 'react-redux';
 
 export default function Counter() {
   const dispatch = useDispatch();
-  const incrementCounter = () => {
-    dispatch({ type: 'INCREMENT' });
+  const incrementCounter = () => {dispatch({ type: 'INCREMENT' });
   };
-  const decrementCounter = () => {
-    dispatch({ type: 'DECREMENT' });
+  const decrementCounter = () => {dispatch({ type: 'DECREMENT' });
   };
   const incrementBy10 = () => {
     dispatch({ type: 'INCREMENT_BY_5', amount: 10 });
