@@ -6,11 +6,9 @@ export default function Counter() {
   };
   const decrementCounter = () => {dispatch({ type: 'DECREMENT' });
   };
-  const incrementBy10 = () => {
-    dispatch({ type: 'INCREMENT_BY_5', amount: 10 });
+  const incrementBy10 = () => {dispatch({ type: 'INCREMENT_BY_5', amount: 10 });
   };
-  const togglrButton = () => {
-    dispatch({ type: 'TOGGLE_COUNTER' });
+  const togglrButton = () => {dispatch({ type: 'TOGGLE_COUNTER' });
   };
   const NomoreToday = () => {
     dispatch({ type: 'TOGGLE_COUNTER' });
