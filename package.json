@@ -49,7 +49,8 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": ".husky/commit-msg"
+      "commit-msg": ".husky/commit-msg",
+      "pre commit": "npx run format"
     }
   }
 }
