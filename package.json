@@ -50,17 +50,7 @@
   "husky": {
     "hooks": {
       "commit-msg": ".husky/commit-msg",
-      "pre commit": "lint-staged"
+      "pre commit": "prettier --write . && pretty-quick --staged && git add ."   
     }
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write",
-      "git add"
-    ],
-    "e2e/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write",
-      "git add"
-    ]
   }
 }
