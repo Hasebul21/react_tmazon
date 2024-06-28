@@ -18,6 +18,7 @@ export default function CounterContextProvider({ children }) {
   function decrement() {
     setCounter(counter => counter - 1);
   }
+  console.log('This is a test');
   const ctx = {
     counter,
     incrementCounter: increment,
