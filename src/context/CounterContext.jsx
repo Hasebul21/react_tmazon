@@ -15,7 +15,9 @@ export default function CounterContextProvider({ children }) {
     setCounter(counter => counter + 1);
   }
 
-  function decrement() {setCounter(counter => counter - 1);}
+  function decrement() {
+    setCounter(counter => counter - 1);
+  }
   const ctx = {
     counter,
     incrementCounter: increment,
