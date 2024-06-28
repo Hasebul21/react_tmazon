@@ -50,7 +50,7 @@
   "husky": {
     "hooks": {
       "commit-msg": ".husky/commit-msg",
-      "pre commit": "prettier --write . && pretty-quick --staged && git add ."   
+      "pre-commit": "prettier --write . && pretty-quick --staged && git add ."   
     }
   }
 }
