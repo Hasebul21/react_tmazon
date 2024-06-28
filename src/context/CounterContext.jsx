@@ -12,12 +12,15 @@ export default function CounterContextProvider({ children }) {
   const [counter, setCounter] = useState(0);
 
   function increment() {
-    setCounter((counter) => counter + 1);
+    setCounter(counter => counter + 1);
   }
 
   function decrement() {
-    setCounter((counter) => counter - 1);
+    setCounter(counter => counter - 1);
   }
+
+  function another() {setCounter(counter => counter - 1);}
+
 
   const ctx = {
     counter,
@@ -25,7 +28,5 @@ export default function CounterContextProvider({ children }) {
     decrementCounter: decrement,
   };
 
-  return (
-    <CounterContext.Provider value={ctx}>{children}</CounterContext.Provider>
-  );
+  return <CounterContext.Provider value={ctx}>{children}</CounterContext.Provider>;
 }
