@@ -20,7 +20,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "prettier --check .",
-    "format": "prettier --write .",
+    "format": "npx prettier --write . && git add .",
     "prepare": "husky install"
   },
   "eslintConfig": {
@@ -50,17 +50,7 @@
   "husky": {
     "hooks": {
       "commit-msg": ".husky/commit-msg",
-      "pre-commit": "lint-staged"
+      "pre-commit": "npm run format"
     }
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write .",
-      "git add -u"
-    ],
-    "e2e/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write .",
-      "git add -u"
-    ]
   }
 }

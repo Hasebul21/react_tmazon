@@ -1,0 +1,22 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+message=$(cat "$1")
+requiredPattern="^[A-Z]+-[0-9]+ [A-Z].{9,}$"
+anotherPattern="^(hotfix|bug): [A-Z].{9,}$"
+
+
+# Check the format of the commit message
+if ! echo "$message" | grep -qE "$requiredPattern" && ! echo "$message" | grep -qE "$anotherPattern"; then
+  echo >&2 "-"
+  echo >&2 "-"
+  echo >&2 "-"
+  echo >&2 "🚨 Wrong commit message! 😕"
+  echo >&2 "The commit message must have this format:"
+  echo >&2 "$message"
+  echo >&2 "-"
+  echo >&2 "For more information, check script in .husky/commit-msg"
+  echo >&2 "-"
+  exit 1
+fi
+
