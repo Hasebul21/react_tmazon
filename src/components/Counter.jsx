@@ -14,6 +14,9 @@ export default function Counter() {
   const togglrButton = () => {
     dispatch({ type: 'TOGGLE_COUNTER' });
   };
+  const NomoreToday = () => {
+    dispatch({ type: 'TOGGLE_COUNTER' });
+  };
   return (
     <div>
       <button onClick={incrementCounter}>Increment</button>
