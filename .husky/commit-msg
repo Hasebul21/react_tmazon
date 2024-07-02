@@ -17,13 +17,6 @@ if ! echo "$message" | grep -qE "$requiredPattern" && ! echo "$message" | grep -
   echo >&2 "  - feature: Description of the new feature"
   echo >&2 "-"
   echo >&2 "You provided: \"$message\""
-  echo >&2 "-"
-  echo >&2 "For more information, check the script in .husky/commit-msg"
-  echo >&2 "and the project documentation."
-  echo >&2 "-"
-  echo >&2 "Reminder: Please read the documentation carefully to ensure"
-  echo >&2 "you are following the correct commit message format."
-  echo >&2 "-"
   exit 1
 else
   echo "✅ Commit message format is correct."
